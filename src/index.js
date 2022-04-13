@@ -1,5 +1,2 @@
-import { isNameValid } from './nameChecker'
-
-export {
-    isNameValid
-}
+export * from './nameChecker'
+export * from "./common/strings"
