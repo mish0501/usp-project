@@ -1,7 +1,3 @@
-import { isNameValid } from './nameChecker'
-import { isEmailValid } from './emailChecker'
-
-export {
-    isNameValid,
-    isEmailValid
-}
+export * from './nameChecker'
+export * from "./common/strings"
+export * from './emailChecker'
