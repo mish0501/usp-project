@@ -1,8 +1,3 @@
-import { isNameValid } from './nameChecker'
-import { isPhoneValid } from './phoneValidation'
-import { isHomePhoneValid } from './phoneValidation'
-export {
-    isNameValid,
-    isPhoneValid,
-    isHomePhoneValid
-}
+export * from './nameChecker'
+export * from './common/strings'
+export * from './phoneValidation'
