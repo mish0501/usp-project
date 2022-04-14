@@ -32,9 +32,7 @@ export function isPhoneValid(phone) {
 }
 
 export function isHomePhoneValid(homePhone) {
-  isFirstFourNumsValid,
-  isFirstThreeNumsValid,
-  isSofiaPhoneValid
+  return isFirstFourNumsValid && isFirstThreeNumsValid && isSofiaPhoneValid;
 }
 export function isSofiaPhoneValid(homePhone) {
   const regex1 = /02\d{7}$/;
