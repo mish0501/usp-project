@@ -25,6 +25,10 @@ const firstThreeNumsArr = [
 ];
 
 const firstFourNumsArr = ["0601", "0618", "0361", "0301"];
+const regex = /\d{9}$/;
+const regexSofia = /02\d{7}$/;
+const firstThreeNums = homePhone.substring(0, 3);
+const firstFourNums = homePhone.substring(0, 4);
 
 export function isPhoneValid(phone) {
   const phoneMaxNum = /[0]{1}[8-9]{1}[7-9]{1}\d{7}$/;
@@ -35,23 +39,18 @@ export function isHomePhoneValid(homePhone) {
   return isFirstFourNumsValid && isFirstThreeNumsValid && isSofiaPhoneValid;
 }
 export function isSofiaPhoneValid(homePhone) {
-  const regex1 = /02\d{7}$/;
-  return regex1.test(homePhone);
+  return regexSofia.test(homePhone);
 }
 export function isFirstThreeNumsValid(homePhone) {
   for (let i = 0; i < firstThreeNumsArr.length; i++) {
-    var firstThreeNums = homePhone.substring(0, 3);
     if (firstThreeNums === firstThreeNumsArr[i]) {
-      let regex = /\d{9}$/;
       return regex.test(homePhone);
     }
   }
 }
 export function isFirstFourNumsValid(homePhone) {
   for (let i = 0; i < firstFourNumsArr.length; i++) {
-    var firstFourNums = homePhone.substring(0, 4);
     if (firstFourNums === firstFourNumsArr[i]) {
-      let regex = /\d{9}$/;
       return regex.test(homePhone);
     }
   }
