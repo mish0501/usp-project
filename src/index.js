@@ -1,8 +1,4 @@
-import { isNameValid } from './nameChecker'
-import { isEgnValidGeneral } from './egnChecker'
-
-
-export {
-    isNameValid,
-    isEgnValidGeneral
-}
+export * from './nameChecker'
+export * from './common/strings'
+export * from './phoneValidation'
+export * from './emailChecker'
