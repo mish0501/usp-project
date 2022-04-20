@@ -34,7 +34,7 @@ export function isPhoneValid(phone) {
 }
 
 export function isHomePhoneValid(homePhone) {
-  return isFirstFourNumsValid && isFirstThreeNumsValid && isSofiaPhoneValid;
+  return isFirstFourNumsValid(homePhone) && isFirstThreeNumsValid(homePhone) && isSofiaPhoneValid(homePhone);
 }
 export function isSofiaPhoneValid(homePhone) {
   return regexSofia.test(homePhone);
