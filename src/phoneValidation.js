@@ -34,7 +34,7 @@ export function isPhoneValid(phone) {
 }
 
 export function isHomePhoneValid(homePhone) {
-  return isFirstFourNumsValid(homePhone) && isFirstThreeNumsValid(homePhone) && isSofiaPhoneValid(homePhone);
+  return isFirstFourNumsValid(homePhone) || isFirstThreeNumsValid(homePhone) || isSofiaPhoneValid(homePhone);
 }
 export function isSofiaPhoneValid(homePhone) {
   return regexSofia.test(homePhone);
@@ -46,6 +46,7 @@ export function isFirstThreeNumsValid(homePhone) {
       return regex.test(homePhone);
     }
   }
+  return false;
 }
 export function isFirstFourNumsValid(homePhone) {
   const firstFourNums = homePhone.substring(0, 4);
@@ -54,4 +55,5 @@ export function isFirstFourNumsValid(homePhone) {
       return regex.test(homePhone);
     }
   }
+  return false;
 }
