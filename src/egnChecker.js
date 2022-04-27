@@ -1,3 +1,5 @@
+import { checkLength, checkOnlyNumbers } from "./common/strings"
+
 const monthDayArr = {
     1: 31,
     2: 28,
@@ -14,7 +16,7 @@ const monthDayArr = {
 };
 
 export function isEgnValidGeneral(egn) {
-    if (egn.length !== 10) {
+    if (!checkLength(egn, 0, 10)) {
         return false;
     }
     
