@@ -16,12 +16,7 @@ const monthDayArr = {
 };
 
 export function isEgnValidGeneral(egn) {
-    if (!checkLength(egn, 0, 10)) {
-        return false;
-    }
-    
-    const yearRegex = /^[0-9]{2}$/;
-    if (!yearRegex.test(egn.substring(0, 2))) {
+    if (!checkLength(egn, 0, 10) && !checkOnlyNumbers(egn)) {
         return false;
     }
 
@@ -75,10 +70,6 @@ export function isEgnValidGeneral(egn) {
         return false;
     }
 
-    var cityRegex = /^[0-9]{3}$/;
-    if(!cityRegex.test(egn.substring(6, 9))) {
-        return false;
-    }
     // Check if control digit is correct
     let sum = 0;
     let controlDigit = 0;
