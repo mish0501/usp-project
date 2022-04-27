@@ -23,7 +23,7 @@ export function isEgnValidGeneral(egn) {
         return false;
     }
 
-    const monthRegex = /^[0-5]{1}/;
+    let monthRegex = /^[0-5]{1}/;
     let substract;
     let segment;
     switch (egn[2]) {
@@ -69,7 +69,7 @@ export function isEgnValidGeneral(egn) {
         day = monthDayArr[month];
     }
     
-    if(parseInt(egn.substring(4, 6)) >= day){
+    if(parseInt(egn.substring(4, 6)) > day){
         return false;
     }
 
