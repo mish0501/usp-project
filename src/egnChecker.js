@@ -137,3 +137,21 @@ export function isEgnCityValid(egn, city){
     }
     return false;
 }
+
+export function isEgnGenderValid(egn, gender){
+    if(!isEgnValidGeneral(egn) && !checkOnlyLetters(gender)){
+        return false;
+    }
+
+    var genderNum = parseInt(egn.substring(8, 9));
+    
+    if(genderNum % 2 == 0 && (gender == "Мъж" || gender == "Момче")){
+        return true;
+    }
+    
+    if (genderNum % 2 != 0 && (gender == "Жена" || gender == "Момиче")){
+        return true;
+    }
+    
+    return false;
+}
