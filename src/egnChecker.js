@@ -1,4 +1,4 @@
-import { checkLength, checkOnlyNumbers } from "./common/strings"
+import { checkLength, checkOnlyNumbers, checkOnlyLetters } from "./common/strings"
 
 const monthDayArr = {
     1: 31,
@@ -89,4 +89,51 @@ export function isEgnValidGeneral(egn) {
     }
     
     return true;
+}
+
+const cityArr = {
+    "Благоевград" : [0,43],
+    "Бургас" : [44,93],
+    "Варна" : [94,139],
+    "Велико Търново" : [140,169],
+    "Видин" : [170,183],
+    "Враца" : [184,217],
+    "Габрово" : [218,233],
+    "Кърджали" : [234,281],
+    "Кюстендил" : [282,301],
+    "Ловеч" : [302,319],
+    "Монтана" : [320,341],
+    "Пазарджик" : [342,377],
+    "Перник" : [378,395],
+    "Плевен" : [396,435],
+    "Пловдив" : [436,501],
+    "Разград" : [502,527],
+    "Русе" : [528,555],
+    "Силистра" : [556,575],
+    "Сливен" : [576,601],
+    "Смолян" : [602,623],
+    "София - град" : [624,721],
+    "София - окръг" : [722,751],
+    "Стара Загора" : [752,789],
+    "Добрич" : [790,821],
+    "Търговище" : [822,843],
+    "Хасково" : [844,871],
+    "Шумен" : [872,903],
+    "Ямбол" : [904,925],
+    "Друго" : [926,999]
+}
+export function isEgnCityValid(egn, city){
+    if(!isEgnValidGeneral(egn) && !checkOnlyLetters(city)){
+        return false;
+    }
+
+    var cityNums = parseInt(egn.substring(6, 9));
+    for (const key in cityArr) {
+        const value = cityArr[key];
+        if( cityNums > value[0] && cityNums < value[1] && city == key){
+            return true;
+        }
+        
+    }
+    return false;
 }
