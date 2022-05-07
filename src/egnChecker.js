@@ -16,7 +16,7 @@ const monthDayArr = {
 };
 
 export function isEgnValidGeneral(egn) {
-    if (!checkLength(egn, 0, 10) && !checkOnlyNumbers(egn)) {
+    if (egn.length !== 10 || !checkOnlyNumbers(egn)) {
         return false;
     }
 
@@ -123,7 +123,7 @@ const cityArr = {
     "Друго" : [926,999]
 }
 export function isEgnCityValid(egn, city){
-    if(!isEgnValidGeneral(egn) && !checkOnlyLetters(city)){
+    if(!isEgnValidGeneral(egn)){
         return false;
     }
 
@@ -139,7 +139,7 @@ export function isEgnCityValid(egn, city){
 }
 
 export function isEgnGenderValid(egn, gender){
-    if(!isEgnValidGeneral(egn) && !checkOnlyLetters(gender)){
+    if(!isEgnValidGeneral(egn)){
         return false;
     }
 
@@ -158,7 +158,7 @@ export function isEgnGenderValid(egn, gender){
 
 export function isEgnDateValid(egn, date, format, delimiter){
     var dateObj = stringToDate(date, format, delimiter);
-    if(!isEgnValidGeneral(egn) && dateObj.toDateString() === "Invalid Date"){
+    if(!isEgnValidGeneral(egn) || dateObj.toDateString() === "Invalid Date"){
         return false;
     }
     var day = parseInt(egn.substring(4, 6));

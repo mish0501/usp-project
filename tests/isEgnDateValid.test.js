@@ -11,5 +11,5 @@ test("test isEgnDateValid", () => {
     expect(isEgnDateValid("", "17/7/2000","dd/MM/yyyy","/")).toBe(false)
     expect(isEgnDateValid(" ", "17/7/2000","dd/MM/yyyy","/")).toBe(false)
     expect(isEgnDateValid("00471788a0", "17/7/2000","dd/MM/yyyy","/")).toBe(false)
-    expect(isEgnDateValid("6812228609", "1968-12-22","yyyy/MM/dd","-")).toBe(true)
+    expect(isEgnDateValid("6812228609", "1968-12-22","yyyy-MM-dd","-")).toBe(true)
 })
