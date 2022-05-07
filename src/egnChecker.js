@@ -155,3 +155,48 @@ export function isEgnGenderValid(egn, gender){
     
     return false;
 }
+
+export function isEgnDateValid(egn, date, format, delimiter){
+    var dateObj = stringToDate(date, format, delimiter);
+    if(!isEgnValidGeneral(egn) && dateObj.toDateString() === "Invalid Date"){
+        return false;
+    }
+    var day = parseInt(egn.substring(4, 6));
+    var month = parseInt(egn.substring(2, 4));
+    var year;
+    var substract = 0;
+    if(month > 40 && month < 53){
+        year = 2000;
+        substract = 40;
+    }
+    if(month > 20 && month < 33){
+        year = 1800;
+        substract = 20;
+    }
+    if(month > 0 && month < 13){
+        year = 1900;
+    }
+    year += parseInt(egn.substring(0, 2));
+
+    var egnDate = new Date(year, month - substract - 1, day);
+
+    if(egnDate.toDateString() != dateObj.toDateString()){
+        return false;
+    }
+    
+    return true;
+}
+
+function stringToDate(date, format, delimiter)
+{
+    var formatLowerCase=format.toLowerCase();
+    var formatItems=formatLowerCase.split(delimiter);
+    var dateItems=date.split(delimiter);
+    var monthIndex=formatItems.indexOf("mm");
+    var dayIndex=formatItems.indexOf("dd");
+    var yearIndex=formatItems.indexOf("yyyy");
+    var month=parseInt(dateItems[monthIndex]);
+    month-=1;
+    var formatedDate = new Date(dateItems[yearIndex],month,dateItems[dayIndex]);
+    return formatedDate;
+}
